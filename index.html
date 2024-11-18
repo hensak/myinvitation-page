@@ -22,7 +22,6 @@
         <!-- Event Details Section -->
         <div class="box hidden" data-animation="fade-in-right rotate">
             <h2>Event Details</h2>
-            <img src="event-details-beach.jpg" alt="Event Details by the beach" class="image">
             <p>
                 <strong>Date:</strong> Saturday, December 16th<br>
                 <strong>Time:</strong> 6:00 PM - Midnight<br>
@@ -30,47 +29,50 @@
             </p>
         </div>
 
-        <!-- Agenda Section -->
-        <div class="box hidden" data-animation="scale-up">
-            <h2>Evening Agenda</h2>
-            <ul>
-                <li><strong>6:00 PM:</strong> Beachside Welcome Drinks</li>
-                <li><strong>7:00 PM:</strong> Sunset Dinner</li>
-                <li><strong>8:30 PM:</strong> Acoustic Performance</li>
-                <li><strong>10:00 PM:</strong> Sky Lantern Ceremony</li>
-            </ul>
-        </div>
-
-        <!-- Highlights Section -->
-        <div class="box hidden" data-animation="fade-in-left rotate">
-            <h2>Highlights</h2>
-            <img src="seagull-highlights.jpg" alt="Seagulls and beach" class="image">
-            <p>Immerse yourself in the magic of the evening:</p>
-            <ul>
-                <li>Stunning seaside views</li>
-                <li>Exquisite culinary delights</li>
-                <li>Sky lantern ceremony</li>
-                <li>Live music</li>
-            </ul>
-        </div>
-
-        <!-- Venue Section -->
-        <div class="box hidden" data-animation="zoom-out">
-            <h2>About the Venue</h2>
-            <img src="venue-beach.jpg" alt="Venue by the ocean" class="image">
-            <p>Azure Shores Pavilion offers breathtaking views of the ocean, golden sandy beaches, and an ambiance like no other.</p>
-        </div>
-
         <!-- RSVP Section -->
         <div class="box hidden" data-animation="fade-in-bottom">
             <h2>RSVP Now</h2>
             <p>We’d love to have you join us for this incredible evening. Please RSVP by December 10th to secure your spot.</p>
-            <button id="rsvp-button">RSVP Now</button>
+
+            <!-- RSVP Form -->
+            <form id="rsvp-form" action="#" method="post" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Full Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email Address">
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">Will you be attending?</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="">Select</option>
+                        <option value="yes">Yes, I will attend</option>
+                        <option value="no">No, I can't attend</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Number of Guests:</label>
+                    <input type="number" id="guests" name="guests" min="0" placeholder="Number of guests (if any)">
+                </div>
+
+                <button type="submit" id="submit-button">Submit RSVP</button>
+            </form>
+
+            <div id="confirmation-message" class="hidden">
+                <h3>Thank you for your RSVP!</h3>
+                <p>We’re excited to have you join us by the ocean. We will send a confirmation to your email soon.</p>
+            </div>
         </div>
     </section>
     <footer>
         <p>Looking forward to seeing you by the ocean! &copy; 2024</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -27,6 +27,7 @@ header h1, header p {
     padding: 20px;
 }
 
+/* Box Styles */
 .box {
     background: white;
     border-radius: 5px;
@@ -37,8 +38,6 @@ header h1, header p {
     transform: scale(0.9);
     transition: all 0.8s ease-out;
     text-align: center;
-    border: 1px solid #b0e0e6;
-    min-height: 300px;
 }
 
 .hidden {
@@ -51,19 +50,63 @@ header h1, header p {
     visibility: visible;
 }
 
-/* Animation Specific Styles */
-[data-animation="fade-in-left"] { transform: translateX(-100px); }
-[data-animation="fade-in-right"] { transform: translateX(100px); }
-[data-animation="fade-in-bottom"] { transform: translateY(100px); }
-[data-animation="scale-up"] { transform: scale(0.8); }
-[data-animation="rotate"] { transform: rotate(10deg); }
-[data-animation="zoom-out"] { transform: scale(1.2); }
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
 
-/* Image Styles */
-.image {
-    max-width: 100%;
+.form-group {
+    width: 100%;
+}
+
+label {
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Confirmation Message */
+#confirmation-message {
+    display: none;
+    background-color: #e0f7fa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#confirmation-message h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+#confirmation-message p {
+    font-size: 16px;
 }
 
 /* Keyframe Animations */
