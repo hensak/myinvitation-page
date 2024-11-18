@@ -1,46 +1,86 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    background: #f7f7f7;
+    background: linear-gradient(to bottom, #fefefe, #f0f0f0);
     color: #333;
 }
 
 header {
-    background: #ff7f50;
+    background: linear-gradient(to right, #ff7f50, #ff6347);
     color: white;
-    padding: 20px 0;
     text-align: center;
+    padding: 50px 20px;
 }
 
-h1 {
+header h1 {
     margin: 0;
+    font-size: 2.5em;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    animation: fadeIn 2s ease-in-out;
 }
 
 .content {
+    max-width: 800px;
+    margin: 30px auto;
     padding: 20px;
 }
 
 .box {
-    margin: 20px 0;
-    padding: 20px;
     background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0; /* Initially hidden */
-    transform: translateY(50px); /* Start slightly below */
-    transition: all 0.6s ease-out;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.8s ease-out;
 }
 
-/* Animation class */
+.hidden {
+    visibility: hidden;
+}
+
 .show {
     opacity: 1;
-    transform: translateY(0); /* Bring to original position */
+    transform: translateY(0);
 }
 
-/* Utility classes */
-.hidden {
-    visibility: hidden; /* Avoid interaction until animation starts */
+[data-animation="fade-in-left"] {
+    transform: translateX(-100px);
+}
+
+[data-animation="fade-in-right"] {
+    transform: translateX(100px);
+}
+
+[data-animation="fade-in-bottom"] {
+    transform: translateY(100px);
+}
+
+button {
+    background: #ff7f50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #ff6347;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
 }
