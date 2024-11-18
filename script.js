@@ -1,37 +1,19 @@
-// Select all sections to animate
-const boxes = document.querySelectorAll('.box');
-const rsvpButton = document.getElementById('rsvp-button');
+// Select all elements with the 'hidden' class
+const hiddenElements = document.querySelectorAll('.hidden');
 
-// Scroll-triggered animation function
-const handleScroll = () => {
-    const triggerBottom = window.innerHeight * 0.85;
-
-    boxes.forEach((box, index) => {
-        const boxTop = box.getBoundingClientRect().top;
-        const animationType = box.getAttribute('data-animation');
-
-        if (boxTop < triggerBottom) {
-            setTimeout(() => {
-                box.classList.add('show');
-                box.classList.remove('hidden');
-                box.style.visibility = 'visible';
-            }, index * 150);
-        } else {
-            box.classList.remove('show');
-            box.style.visibility = 'hidden';
+// Function to handle animations on scroll
+function handleScrollAnimations() {
+    hiddenElements.forEach(element => {
+        const position = element.getBoundingClientRect();
+        const isVisible = position.top < window.innerHeight - 50; // Add buffer
+        if (isVisible) {
+            element.classList.add('show'); // Trigger animation
         }
     });
-};
+}
 
-// Smooth scrolling for RSVP button
-rsvpButton.addEventListener('click', () => {
-    const lastSection = document.getElementById('section4');
-    lastSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    alert('Thank you for RSVPing! We’ll send you the event details soon.');
-});
+// Event listener for scrolling
+window.addEventListener('scroll', handleScrollAnimations);
 
-// Attach scroll event listener
-window.addEventListener('scroll', handleScroll);
-
-// Initial trigger for elements in view
-handleScroll();
+// Initial check for elements in view
+handleScrollAnimations();
